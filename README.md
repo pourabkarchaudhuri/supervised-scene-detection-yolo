@@ -1,19 +1,52 @@
-## Intro
-
-[![Build Status](https://travis-ci.org/thtrieu/darkflow.svg?branch=master)](https://travis-ci.org/thtrieu/darkflow) [![codecov](https://codecov.io/gh/thtrieu/darkflow/branch/master/graph/badge.svg)](https://codecov.io/gh/thtrieu/darkflow)
+# Project Darkflow
+##### Supervised Learning and Classifier Training for Surveillance Cameras using Image Segmentation and Video Analysis
+&nbsp;
+## Inspiration
 
 Real-time object detection and classification. Paper: [version 1](https://arxiv.org/pdf/1506.02640.pdf), [version 2](https://arxiv.org/pdf/1612.08242.pdf).
 
 Read more about YOLO (in darknet) and download weight files [here](http://pjreddie.com/darknet/yolo/). In case the weight file cannot be found, I uploaded some of mine [here](https://drive.google.com/drive/folders/0B1tW_VtY7onidEwyQ2FtQVplWEU), which include `yolo-full` and `yolo-tiny` of v1.0, `tiny-yolo-v1.1` of v1.1 and `yolo`, `tiny-yolo-voc` of v2.
 
-
-See demo below or see on [this imgur](http://i.imgur.com/EyZZKAA.gif)
-
 <p align="center"> <img src="demo.gif"/> </p>
+### Environment Setup
 
+##### This was built on Windows 10.
+
+These were the pre-requisities :
+
+##### NVIDIA CUDA Toolkit
+* [CUDA] - parallel computing platform and programming model developed by NVIDIA for general computing on graphical processing units (GPUs). Download and Install all the patches. During install, choose Custom and uncheck the Visual Studio Integration checkbox.
+
+##### Download cuDNN
+* [cuDNN] - The NVIDIA CUDA® Deep Neural Network library (cuDNN) is a GPU-accelerated library of primitives for deep neural networks. Create a NVIDIA developer account to download.
+
+##### Set Path :
+Add the following paths,
+&nbsp;
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin
+&nbsp;
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\libnvvp
+&nbsp;
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin\extras\CUPTI\libx64
+
+##### Install [Anaconda](https://www.anaconda.com/download/) with 3.6 x64
+
+```sh
+$ conda update conda
+```
+
+##### Run package installer
+
+```sh
+$ pip install -r requirements.txt
+```
+
+##### Install C/C++ Build tools
+
+* [C/C++ Build Tools] - Custom librarires required to build C based implementations to Python runnable builds
 ## Dependencies
 
-Python3, tensorflow 1.0, numpy, opencv 3.
+Python3, tensorflow 1.0, numpy, opencv 3, Cython.
 
 ### Getting started
 
@@ -33,13 +66,6 @@ You can choose _one_ of the following three ways to get started with darkflow.
     ```
     pip install .
     ```
-
-## Update
-
-**Android demo on Tensorflow's** [here](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/TensorFlowYoloDetector.java)
-
-**I am looking for help:**
- - `help wanted` labels in issue track
 
 ## Parsing the annotations
 
@@ -274,4 +300,17 @@ flow --pbLoad built_graph/yolo.pb --metaLoad built_graph/yolo.meta --imgdir samp
 ```
 If you'd like to load a `.pb` and `.meta` file when using `return_predict()` you can set the `"pbLoad"` and `"metaLoad"` options in place of the `"model"` and `"load"` options you would normally set.
 
-That's all.
+License
+----
+
+Public
+
+
+   [Tensorflow]: <https://www.tensorflow.org/>
+   [Python]: <https://www.python.org/>
+   [Google's FaceNet]: <https://arxiv.org/abs/1503.03832>
+   [Anaconda]: <https://www.anaconda.com/download/>
+   [CUDA]: <https://developer.nvidia.com/cuda-90-download-archive?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exelocal>
+   [cuDNN]: <https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7.0.5/prod/9.0_20171129/cudnn-9.0-windows10-x64-v7>
+   [Pretrained Model]: <https://drive.google.com/open?id=1sOMaZYWyWJJKJkQFVf3TUTX6-1iyR-kV>
+   [C/C++ Build Tools]: <https://go.microsoft.com/fwlink/?LinkId=691126>
