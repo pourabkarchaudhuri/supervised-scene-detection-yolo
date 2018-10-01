@@ -5,7 +5,7 @@ import numpy as np
 import time, os
 import urllib.request
 
-url='http://192.168.43.1:8080/shot.jpg'
+url='http://172.25.97.64:8080/shot.jpg'
 
 
 # %config InlineBackend.figure_format = 'svg'
@@ -33,7 +33,7 @@ while True:
 
     stime = time.time()
     ret, frame = capture.read()
-    results = tfnet.return_predict(frame)
+    results = tfnet.return_predict(img)
     if ret:
         for color, result in zip(colors, results):
             print(result)
